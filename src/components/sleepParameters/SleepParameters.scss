@@ -1,0 +1,51 @@
+.parameters-container {
+    max-width: 900px;
+    margin-block: 2em;
+	padding: 2em;
+	background-color: var(--secondary-clr);
+	border: 1px solid #ababaf;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+    position: relative;
+
+    
+
+    h2 {
+        margin-bottom: 0.5em;
+    }
+
+    h3 {
+        font-size: 2.4rem;
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 1.8em;
+    }
+
+    .sleep-cycle {
+        padding: 2em;
+        background-color: #1d1524;
+        border-radius: 8px;
+        p {
+            margin-block: 1em 0;
+        }
+    }
+
+    .sleep-inertia {
+        margin-top: 1em;
+    }
+
+    ol {
+        li {
+            margin: 0em 0 1.2em 2em;
+
+        }
+    }
+
+    .parameters-summary {
+        margin-bottom: 3.5em;
+    }
+}
