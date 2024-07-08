@@ -13,7 +13,7 @@ export default function SleepCalculatorOptions() {
 		{
 			title: 'What time should I wake up?',
 			description:
-				'Choose this option to find out how long you should sleep to be fully rested and minimise the risk of sleep inertia.',
+				'Choose this option to find out how long you should sleep to be fully rested and minimize the risk of sleep inertia.',
 			buttonText: 'Select',
 			linkTo: '/wake-up-time-calculator',
 		},
@@ -34,7 +34,7 @@ export default function SleepCalculatorOptions() {
 	];
 	return (
 		<div className='calculator-container'>
-			<h2 className='calculator-header'>Sleep Calculator</h2>
+			<h2 className='calculator-header'>Sleep Optimizer</h2>
 
 			<p>Choose one of the available options</p>
 

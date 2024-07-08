@@ -1,8 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-
 import './SleepParameters.scss';
-
-
 export default function SleepParameters() {
     const navigate = useNavigate();
 	return (
@@ -66,7 +63,7 @@ export default function SleepParameters() {
 				work for another, so it's crucial to listen to your own body and adjust
 				your sleep approach accordingly.
 			</p>
-			<button className='back-to-previous back-to-previous-lower' onClick={() => navigate(-1)}>
+			<button className='back-to-previous' onClick={() => navigate(-1)}>
 				Back to main menu
 			</button>
 		</div>
