@@ -11,7 +11,6 @@ import WakeUpTimeCalculator from './components/wakeUpTimeCalculator/WakeUpTimeCa
 import SleepQualityCalculator from './components/sleepQualityCalculator/SleepQualityCalculator';
 import BedTimeCalculator from './components/bedTimeCalculator/BedTimeCalculator';
 
-
 //hooks
 import useMousePosition from './hooks/useMousePosition';
 function App() {
@@ -23,24 +22,30 @@ function App() {
 	}, [mousePosition, location]);
 
 	const { pathname } = useLocation();
-	if(pathname !== '/'){
-		document.body.style.backdropFilter = 'blur(0px)'
+	if (pathname !== '/') {
+		document.body.style.backdropFilter = 'blur(0px)';
 	}
 	return (
 		<Routes>
-			<Route path='/' element={<WelcomeScreen />}></Route>
-			<Route path='/menu' element={<SleepCalculatorOptions />} />
-			<Route path='/sleep-parameters' element={<SleepParameters />} />
+			<Route path='/sleep-optimizer/' element={<WelcomeScreen />}></Route>
 			<Route
-				path='/wake-up-time-calculator'
+				path='/sleep-optimizer/menu'
+				element={<SleepCalculatorOptions />}
+			/>
+			<Route
+				path='/sleep-optimizer/sleep-parameters'
+				element={<SleepParameters />}
+			/>
+			<Route
+				path='/sleep-optimizer/wake-up-time-calculator'
 				element={<WakeUpTimeCalculator />}
 			/>
 			<Route
-				path='/bed-time-calculator'
+				path='/sleep-optimizer/bed-time-calculator'
 				element={<BedTimeCalculator />}
 			/>
 			<Route
-				path='/sleep-quality-calculator'
+				path='/sleep-optimizer/sleep-quality-calculator'
 				element={<SleepQualityCalculator />}
 			/>
 		</Routes>
