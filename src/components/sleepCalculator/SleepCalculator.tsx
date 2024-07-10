@@ -11,6 +11,10 @@ import CalculateSleepData, {
 	SleepData,
 } from '../../utilities/CalculateSleepData';
 
+// icons
+import { IoArrowBack } from 'react-icons/io5';
+
+// types
 type CalculatorProps = {
 	title: string;
 	inputInfo: string;
@@ -24,16 +28,14 @@ export default function SleepCalculator({
 }: CalculatorProps) {
 	const navigate = useNavigate();
 	const [sleepTime, setSleepTime] = useState({
-		bedTimeHour: 0,
+		bedTimeHour: 23,
 		bedTimeMinute: 0,
-		wakeUpHour: 0,
-		wakeUpMinute: 0,
+		wakeUpHour: 6,
+		wakeUpMinute: 45,
 	});
 	const [sleepParameters, setSleepParameters] = useState<SleepData | null>(
 		null
 	);
-
-	console.log(sleepTime)
 
 	function handleChange(e: React.ChangeEvent<HTMLSelectElement>): void {
 		const { name, value } = e.target;
@@ -81,9 +83,18 @@ export default function SleepCalculator({
 	];
 
 	const handleCalculate = () => {
-		const sleepData = CalculateSleepData(sleepTime);
-		setSleepParameters(sleepData);
-	  };
+		let sleepData;
+		if (name === 'quality') {
+			sleepData = CalculateSleepData(sleepTime, 'quality');
+		} else if (name === 'bedTime') {
+			sleepData = CalculateSleepData(sleepTime, 'bedTime');
+		} else if (name === 'wakeUpTime') {
+			sleepData = CalculateSleepData(sleepTime, 'wakeUpTime');
+		}
+		if (sleepData !== undefined) {
+			setSleepParameters(sleepData);
+		}
+	};
 
 	const formatTime = (sleepParameters: SleepData, name: string) => {
 		const hour =
@@ -200,7 +211,7 @@ export default function SleepCalculator({
 			)}
 
 			<button className='back-to-previous' onClick={() => navigate(-1)}>
-				Back to main menu
+				<IoArrowBack /> Back to main menu
 			</button>
 		</div>
 	);

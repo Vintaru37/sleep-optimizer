@@ -26,7 +26,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	backdrop-filter: blur(1px);
+	backdrop-filter: blur(1.5px);
 }
 
 .wrapper {
@@ -64,19 +64,28 @@ a {
 }
 
 .back-to-previous {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
 	position: absolute;
 	border: 1px solid #ababaf;
 	right: 15px;
 	bottom: 15px;
+	font-size: 1.8rem;
 	transition: all 0.2s;
+
 	&:hover {
 		background-color: #1e1824;
+	}
+
+	svg {
+		margin-left: -0.6em;
 	}
 }
 
 .calculator-container {
 	max-width: 900px;
-    margin-block: 2em;
+	margin: 2em;
 	padding: 2em;
 	background-color: var(--secondary-clr);
 	border: 1px solid #ababaf;
@@ -84,5 +93,5 @@ a {
 	display: flex;
 	flex-direction: column;
 	gap: 1.5em;
-	position: relative;
+	position: relative;	
 }

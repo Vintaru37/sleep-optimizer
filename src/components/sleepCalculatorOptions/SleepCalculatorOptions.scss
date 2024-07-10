@@ -28,6 +28,10 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 1em;
 
+		@media (width < 850px){
+			grid-template-columns: 1fr;
+		}
+
 		.calculator-options-item {
 			max-width: 350px;
 			height: fit-content;

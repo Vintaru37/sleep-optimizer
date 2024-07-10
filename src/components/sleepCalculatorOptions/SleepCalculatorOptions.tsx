@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function SleepCalculatorOptions() {
 	const options = [
 		{
-			title: 'How well am I sleeping?',
+			title: 'How well do I sleep?',
 			description:
 				'Choose this option if you want to know how well you are sleeping and what you can improve on.',
 			buttonText: 'Select',
@@ -25,7 +25,7 @@ export default function SleepCalculatorOptions() {
 			linkTo: '/bed-time-calculator',
 		},
 		{
-			title: 'Information Note',
+			title: 'Information',
 			description:
 				'Based on the data you enter, specific sleep parameters will be calculated. To find out more about the sleep parameters, click on the button below.',
 			buttonText: 'Sleep parameters',

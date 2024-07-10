@@ -30,6 +30,8 @@ export default function CalculatedSleepParameters({
 		const minutes = Math.round((time - hours) * 60);
 		if (minutes === 0) {
 			return `${hours} hours`;
+		} else if (hours === 0){
+			return `${minutes} minutes`;
 		} else {
 			return `${hours} hours ${minutes} minutes`;
 		}

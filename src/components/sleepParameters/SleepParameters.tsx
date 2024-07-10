@@ -1,5 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import './SleepParameters.scss';
+
+// icons
+import { IoArrowBack } from "react-icons/io5";
 export default function SleepParameters() {
     const navigate = useNavigate();
 	return (
@@ -68,7 +71,7 @@ export default function SleepParameters() {
 				your sleep approach accordingly.
 			</p>
 			<button className='back-to-previous' onClick={() => navigate(-1)}>
-				Back to main menu
+				<IoArrowBack /> Back to main menu
 			</button>
 		</div>
 	);

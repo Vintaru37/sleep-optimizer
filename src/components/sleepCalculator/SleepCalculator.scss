@@ -18,7 +18,11 @@
 		.quality-sleep-container {
 			display: flex;
 			gap: 2em;
-			//possible change
+
+			@media (width < 460px) {
+				flex-direction: column;
+				gap: 0.8em;
+			}
 
 			&-label {
 				font-size: 2rem;

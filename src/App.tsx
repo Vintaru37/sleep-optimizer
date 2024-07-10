@@ -1,7 +1,7 @@
 import './App.scss';
 
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 //components
 import WelcomeScreen from './components/welcomeScreen/WelcomeScreen';
@@ -21,6 +21,11 @@ function App() {
 			mousePosition.y * 0.07
 		}px`;
 	}, [mousePosition, location]);
+
+	const { pathname } = useLocation();
+	if(pathname !== '/'){
+		document.body.style.backdropFilter = 'blur(0px)'
+	}
 	return (
 		<Routes>
 			<Route path='/' element={<WelcomeScreen />}></Route>
