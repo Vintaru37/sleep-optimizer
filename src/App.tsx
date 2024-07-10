@@ -15,13 +15,13 @@ import BedTimeCalculator from './components/bedTimeCalculator/BedTimeCalculator'
 import useMousePosition from './hooks/useMousePosition';
 function App() {
 	const mousePosition = useMousePosition();
+	const { pathname } = useLocation();
 	useEffect(() => {
 		document.body.style.backgroundPosition = `-${mousePosition.x * 0.07}px -${
 			mousePosition.y * 0.07
 		}px`;
 	}, [mousePosition, location]);
 
-	const { pathname } = useLocation();
 	if (pathname !== '/sleep-optimizer/') {
 		document.body.style.backdropFilter = 'blur(0px)';
 	}
@@ -33,7 +33,7 @@ function App() {
 				element={<SleepCalculatorOptions />}
 			/>
 			<Route
-				path='/sleep-optimizer/sleep-parameters'
+				path='/sleep-parameters'
 				element={<SleepParameters />}
 			/>
 			<Route
