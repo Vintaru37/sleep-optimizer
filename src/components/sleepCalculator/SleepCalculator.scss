@@ -3,7 +3,7 @@
 		line-height: 1.6;
 		max-width: 700px;
 
-		span {
+		.input-info {
 			color: var(--primary-clr);
 			font-weight: bold;
 		}
@@ -17,7 +17,7 @@
 
 		.quality-sleep-container {
 			display: flex;
-			flex-direction: column;
+			gap: 2em;
 			//possible change
 
 			&-label {
@@ -46,5 +46,15 @@
 		&:hover {
 			background-color: #1e1824;
 		}
+	}
+
+	.optimal-time-info {
+		margin-block: -4em 0;
+	}
+
+	.optimal-time {
+		margin-bottom: 2em;
+		font-size: 3.6rem;
+		font-weight: bold;
 	}
 }

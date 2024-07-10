@@ -1,0 +1,26 @@
+.calculated-sleep-parameters {
+    margin-block: -3em 5em;
+
+   h3 {
+    font-size: 2.8rem;
+    color: var(--primary-clr);
+   }
+
+    .subtitle, .sleep-cycles {
+        font-size: 1.7rem;
+        margin-bottom: 1em;
+        font-weight: normal;
+        color: #fff;
+    }
+
+    p {
+        text-align: left;
+        margin-block: 0.5em;
+        font-weight: bold;
+        color: var(--primary-clr);
+
+        span {
+            font-weight: normal;
+        }
+    }
+}

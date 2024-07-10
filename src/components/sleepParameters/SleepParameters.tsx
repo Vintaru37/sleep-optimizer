@@ -38,6 +38,10 @@ export default function SleepParameters() {
 				15 minutes to several hours and is often more pronounced after long naps
 				or waking up at an unusual time.
 			</p>
+			<h3>Deep Sleep</h3>
+			<p>
+			Deep sleep, also known as slow-wave sleep, is a stage of sleep essential for physical restoration and memory consolidation. During this stage, brain activity slows down, heart rate and breathing decrease, and muscles relax.
+			</p>
 
 			<h3>Tips for Quality Sleep</h3>
 			<ol>

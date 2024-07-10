@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router';
 
 //components
 import SelectElement from '../selectElement/SelectElement';
+import CalculatedSleepParameters from '../calculatedSleepParameters/CalculatedSleepParameters';
 
 // utilities
-import CalculateSleepData from '../../utilities/CalculateSleepData';
+import CalculateSleepData, {
+	SleepData,
+} from '../../utilities/CalculateSleepData';
 
 type CalculatorProps = {
 	title: string;
@@ -26,6 +29,11 @@ export default function SleepCalculator({
 		wakeUpHour: 0,
 		wakeUpMinute: 0,
 	});
+	const [sleepParameters, setSleepParameters] = useState<SleepData | null>(
+		null
+	);
+
+	console.log(sleepTime)
 
 	function handleChange(e: React.ChangeEvent<HTMLSelectElement>): void {
 		const { name, value } = e.target;
@@ -73,47 +81,66 @@ export default function SleepCalculator({
 	];
 
 	const handleCalculate = () => {
-		const sleepInfo = CalculateSleepData(sleepTime);
+		const sleepData = CalculateSleepData(sleepTime);
+		setSleepParameters(sleepData);
+	  };
 
-		console.log(sleepInfo);
+	const formatTime = (sleepParameters: SleepData, name: string) => {
+		const hour =
+			name === 'wakeUpTime'
+				? sleepParameters.optimalWakeUpHour
+				: sleepParameters.optimalBedTimeHour;
+		const minute =
+			name === 'wakeUpTime'
+				? sleepParameters.optimalWakeUpMinute
+				: sleepParameters.optimalBedTimeMinute;
+		return `${(hour % 24).toString().padStart(2, '0')}:${minute
+			.toString()
+			.padStart(2, '0')}`;
 	};
 
 	return (
 		<div className='calculator-container'>
 			<h2 className='calculator-header'>{title}</h2>
 			<p>
-				Insert the <span>{inputInfo}</span> and we will count the optimal sleep
-				time as well as the sleep-related parameters.
+				Insert the <span className='input-info'>{inputInfo}</span> and we will
+				count{' '}
+				{name !== 'quality' && <span>the optimal sleep time as well as </span>}
+				the sleep-related parameters.
 			</p>
 
 			<div className='calculator-form-container'>
 				{name === 'quality' && (
 					<div className='quality-sleep-container'>
-						<p className='quality-sleep-container-label'>Bedtime</p>
-						<div className='quality-sleep-container-item'>
-							{selects.slice(0, 2).map((select) => (
-								<SelectElement
-									key={select.name}
-									name={select.name}
-									onChange={handleChange}
-									options={select.options}
-									label={select.label}
-									value={select.value}
-								/>
-							))}
+						<div className='quality-sleep-container-content'>
+							<p className='quality-sleep-container-label'>Bedtime</p>
+							<div className='quality-sleep-container-item'>
+								{selects.slice(0, 2).map((select) => (
+									<SelectElement
+										key={select.name}
+										name={select.name}
+										onChange={handleChange}
+										options={select.options}
+										label={select.label}
+										value={select.value}
+									/>
+								))}
+							</div>
 						</div>
-						<p className='quality-sleep-container-label'>Wake up Time</p>
-						<div className='quality-sleep-container-item'>
-							{selects.slice(2).map((select) => (
-								<SelectElement
-									key={select.name}
-									name={select.name}
-									onChange={handleChange}
-									options={select.options}
-									label={select.label}
-									value={select.value}
-								/>
-							))}
+						<div className='quality-sleep-container-content'>
+							<p className='quality-sleep-container-label'>Wake up Time</p>
+							<div className='quality-sleep-container-item'>
+								{selects.slice(2).map((select) => (
+									<SelectElement
+										key={select.name}
+										name={select.name}
+										onChange={handleChange}
+										options={select.options}
+										label={select.label}
+										value={select.value}
+									/>
+								))}
+							</div>
 						</div>
 					</div>
 				)}
@@ -146,7 +173,32 @@ export default function SleepCalculator({
 					</>
 				)}
 			</div>
-			<button className='calculator-calculate-btn'>Calculate</button>
+			<button
+				className='calculator-calculate-btn'
+				onClick={() => handleCalculate()}>
+				Calculate
+			</button>
+			{['wakeUpTime', 'bedTime'].includes(name) && (
+				<>
+					{sleepParameters && (
+						<>
+							<p className='optimal-time-info'>
+								{name === 'wakeUpTime'
+									? 'Optimal wake up time:'
+									: 'Optimal bed time:'}
+							</p>
+
+							<p className='optimal-time'>
+								{formatTime(sleepParameters, name)}
+							</p>
+						</>
+					)}
+				</>
+			)}
+			{sleepParameters && (
+				<CalculatedSleepParameters sleepParameters={sleepParameters} />
+			)}
+
 			<button className='back-to-previous' onClick={() => navigate(-1)}>
 				Back to main menu
 			</button>
