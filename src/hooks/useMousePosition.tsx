@@ -5,7 +5,7 @@ export default function useMousePosition() {
 	const location = useLocation();
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 	useEffect(() => {
-		if (location.pathname === '/' || location.pathname === '/menu') {
+		if (location.pathname === '/sleep-optimizer/' || location.pathname === '/sleep-optimizer/menu') {
 		const handleMouseMove = (e: MouseEvent) => {
 			setMousePosition({ x: e.clientX, y: e.clientY });
 		};
