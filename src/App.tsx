@@ -22,7 +22,7 @@ function App() {
 	}, [mousePosition, location]);
 
 	const { pathname } = useLocation();
-	if (pathname !== '/') {
+	if (pathname !== '/sleep-optimizer/') {
 		document.body.style.backdropFilter = 'blur(0px)';
 	}
 	return (
@@ -37,15 +37,15 @@ function App() {
 				element={<SleepParameters />}
 			/>
 			<Route
-				path='/sleep-optimizer/wake-up-time-calculator'
+				path='/wake-up-time-calculator'
 				element={<WakeUpTimeCalculator />}
 			/>
 			<Route
-				path='/sleep-optimizer/bed-time-calculator'
+				path='/bed-time-calculator'
 				element={<BedTimeCalculator />}
 			/>
 			<Route
-				path='/sleep-optimizer/sleep-quality-calculator'
+				path='/sleep-quality-calculator'
 				element={<SleepQualityCalculator />}
 			/>
 		</Routes>
